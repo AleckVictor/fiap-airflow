@@ -5,9 +5,9 @@ import pandas as pd
 import oracledb
 import os
 
-# Função principal
+
 def carregar_dados_oracle():
-    # Caminho do arquivo local (já extraído manualmente)
+    # Caminho do arquivo local
     file_path = "/opt/airflow/dags/walmart_dataset/Walmart_customer_purchases.csv"
 
     # Lê o arquivo
@@ -86,7 +86,7 @@ def carregar_dados_oracle():
 with DAG(
     dag_id="walmart_carregar_dados_oracle",
     start_date=datetime(2024, 1, 1),
-    schedule_interval="@once",  # Roda apenas uma vez
+    schedule_interval="@once", 
     catchup=False,
     tags=["walmart", "oracle"]
 ) as dag:
